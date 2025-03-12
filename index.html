@@ -13,12 +13,12 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- css styles  -->
-     <style>
-      .active{
-        background: #FF1F3D ;
+    <style>
+      .active {
+        background: #ff1f3d;
         color: white;
       }
-     </style>
+    </style>
   </head>
   <body>
     <header>
@@ -30,29 +30,48 @@
         </div>
         <div class="sort">
           <label class="input">
-            <svg class="h-full md:h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
-            <input id="search-input" type="search" required placeholder="Search"/>
+            <svg
+              class="h-full md:h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input
+              id="search-input"
+              type="search"
+              required
+              placeholder="Search"
+            />
           </label>
         </div>
         <div class="blog">
-          <button class="btn bg-[#FF1F3D] md:block hidden text-white">Sort By View</button>
+          <button class="btn bg-[#FF1F3D] md:block hidden text-white">
+            Sort By View
+          </button>
         </div>
       </nav>
     </header>
     <nav id="category-container" class="flex justify-center py-5 gap-5">
       <div>
-        <button id="btn-all"
-          onclick="loadVideos()"
-          class="btn btn-sm"
-        >
+        <button id="btn-all" onclick="loadVideos()" class="btn btn-sm">
           All
         </button>
       </div>
     </nav>
 
-<section id="loader" class="text-center py-10 hidden">
-  <span class="loading loading-dots loading-xl"></span>
-</section>
+    <section id="loader" class="text-center py-10 hidden">
+      <span class="loading loading-dots loading-xl"></span>
+    </section>
 
     <section
       id="video-container"
@@ -68,19 +87,30 @@
       </div>
     </section>
 
-<dialog id="video_details" class="modal">
-  <div class="modal-box">
-   <div id="details-container">
+    <dialog id="video_details" class="modal">
+      <div class="modal-box">
+        <div id="details-container"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
-   </div>
-    <div class="modal-action">
-      <form method="dialog">
-        
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+    <footer class="mt-10 text-black items-center p-4 text-center">
+      <div class="items-center flex justify-center flex-col">
+        <div>
+          <p>
+            Copyright © <span id="year"></span> - All rights reserved. Ismail
+            initiative.
+          </p>
+        </div>
+        <div>
+          <p id="date-time"></p>
+        </div>
+      </div>
+    </footer>
 
     <script src="./script/index.js"></script>
   </body>
