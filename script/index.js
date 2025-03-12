@@ -1,3 +1,12 @@
+const showLoader = () => {
+  document.getElementById("loader").classList.remove("hidden");
+  document.getElementById("video-container").classList.add("hidden");
+};
+const hideLoader = () => {
+  document.getElementById("loader").classList.add("hidden");
+  document.getElementById("video-container").classList.remove("hidden");
+};
+
 function removeActiveClass() {
   const activeBtns = document.getElementsByClassName("active");
 
@@ -15,8 +24,11 @@ function loadCategories() {
     .then((data) => displayCategories(data.categories));
 }
 
-function loadVideos() {
-  fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
+function loadVideos(searchText = "") {
+  showLoader();
+  fetch(
+    `https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`
+  )
     .then((response) => response.json())
     .then((data) => {
       removeActiveClass();
@@ -55,12 +67,8 @@ const displayVideoDetails = (video) => {
   `;
 };
 
-//
-//     "category_id": "1001",
-//     "category": "Music"
-//
-
 const loadCategoryVideos = (id) => {
+  showLoader();
   const url = `https://openapi.programming-hero.com/api/phero-tube/category/${id}`;
   // console.log(url);
 
@@ -106,6 +114,7 @@ const displayVideos = (videos) => {
     <h2 class="text-2xl font-bold">Oops!! Sorry, There is no content here</h2>
   </div>
     `;
+    hideLoader();
     return;
   }
 
@@ -146,25 +155,12 @@ const displayVideos = (videos) => {
             `;
     videoContainer.append(videoCard);
   });
+  hideLoader();
 };
 
-loadCategories();
+document.getElementById("search-input").addEventListener("keyup", (e) => {
+  const input = e.target.value;
+  loadVideos(input);
+});
 
-// {
-//     "category_id": "1001",
-//     "video_id": "aaaa",
-//     "thumbnail": "https://i.ibb.co/L1b6xSq/shape.jpg",
-//     "title": "Shape of You",
-//     "authors": [
-//         {
-//             "profile_picture": "https://i.ibb.co/D9wWRM6/olivia.jpg",
-//             "profile_name": "Olivia Mitchell",
-//             "verified": ""
-//         }
-//     ],
-//     "others": {
-//         "views": "100K",
-//         "posted_date": "16278"
-//     },
-//     "description": "Dive into the rhythm of 'Shape of You,' a captivating track that blends pop sensibilities with vibrant beats. Created by Olivia Mitchell, this song has already gained 100K views since its release. With its infectious melody and heartfelt lyrics, 'Shape of You' is perfect for fans looking for an uplifting musical experience. Let the music take over as Olivia's vocal prowess and unique style create a memorable listening journey."
-// }
+loadCategories();
