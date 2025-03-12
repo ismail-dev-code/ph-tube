@@ -170,24 +170,24 @@ loadCategories();
 document.getElementById('year').textContent = new Date().getFullYear();
 
   // date and time 
-  function formatAMPM(date) {
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds(); 
-    let ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12; 
+  // function formatAMPM(date) {
+  //   let hours = date.getHours();
+  //   let minutes = date.getMinutes();
+  //   let seconds = date.getSeconds(); 
+  //   let ampm = hours >= 12 ? 'PM' : 'AM';
+  //   hours = hours % 12;
+  //   hours = hours ? hours : 12; 
     
-    return hours + ':' + minutes + ':' + seconds + ' ' + ampm;
-  }
+  //   return hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+  // }
 
   
-  function updateDateTime() {
-    const now = new Date();
-    const dateStr = now.toLocaleDateString(); 
-    const timeStr = formatAMPM(now); // 
-    document.getElementById('date-time').textContent = ` ${dateStr}, ${timeStr}`;
-  }
+  // function updateDateTime() {
+  //   const now = new Date();
+  //   const dateStr = now.toLocaleDateString(); 
+  //   const timeStr = formatAMPM(now); // 
+  //   document.getElementById('date-time').textContent = ` ${dateStr}, ${timeStr}`;
+  // }
 
   
-  setInterval(updateDateTime, 1000);
+  // setInterval(updateDateTime, 1000);
