@@ -23,19 +23,19 @@
   <body>
     <header>
       <nav
-        class="w-11/12 mx-auto flex justify-between border-b-2 py-5 border-[#17171720]"
+        class="w-11/12 mx-auto flex md:gap-0 gap-5 justify-between border-b-2 md:py-5 py-3 border-[#17171720]"
       >
         <div class="logo">
-          <img class="w-[120px]" src="./assets/Logo.png" alt="" />
+          <img class="w-full md:w-[120px]" src="./assets/Logo.png" alt="" />
         </div>
         <div class="sort">
           <label class="input">
-            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
+            <svg class="h-full md:h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
             <input id="search-input" type="search" required placeholder="Search"/>
           </label>
         </div>
         <div class="blog">
-          <button class="btn bg-[#FF1F3D] text-white">Sort By View</button>
+          <button class="btn bg-[#FF1F3D] md:block hidden text-white">Sort By View</button>
         </div>
       </nav>
     </header>
@@ -56,20 +56,18 @@
 
     <section
       id="video-container"
-      class="w-11/12 mx-auto grid grid-cols-4 gap-5"
+      class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-5"
     >
       <div
         class="col-span-full flex flex-col justify-center items-center py-20"
       >
-        <img class="w-[120px]" src="./assets/Icon.png" alt="" />
-        <h2 class="text-2xl font-bold">
+        <img class="w-full md:w-[120px]" src="./assets/Icon.png" alt="" />
+        <h2 class="text-base md:text-2xl font-bold">
           Oops!! Sorry, There is no content here
         </h2>
       </div>
     </section>
 
-    <!-- Open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
 <dialog id="video_details" class="modal">
   <div class="modal-box">
    <div id="details-container">
@@ -77,7 +75,7 @@
    </div>
     <div class="modal-action">
       <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
+        
         <button class="btn">Close</button>
       </form>
     </div>
